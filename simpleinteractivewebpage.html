@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ES6 & DOM Features Demo</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+button {
+padding: 10px 15px;
+margin-bottom: 15px;
+cursor: pointer;
+}
+#output {
+background: #f4f4f4;
+padding: 15px;
+border-radius: 5px;
+white-space: pre-wrap;
+font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>ES6 & DOM Manipulation Demo</h1>
+  <button id="runDemoBtn">Run Demo</button>
+  <div id="output"></div>
+
+  <script>
+   
+    showHoistingMessage();
+
+    function showHoistingMessage() {
+      console.log('👋 This message is from a hoisted function!');
+    }
+
+   
+    const sum = (a, b) => a + b;
+
+   
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5];
+    const mergedArr = [...arr1, ...arr2];
+
+    
+    const sumAll = (...nums) => nums.reduce((acc, curr) => acc + curr, 0);
+
+
+    function runDemo() {
+      const output = [];
+
+      output.push('1. Hoisting example:');
+      output.push('   (Check console for message from hoisted function)');
+
+      output.push('\n2. Arrow function sum(5, 7):');
+      output.push(`   Result: ${sum(5, 7)}`);
+
+      output.push('\n3. Spread operator - Merged arrays:');
+      output.push(`   [${mergedArr.join(', ')}]`);
+
+      output.push('\n4. Rest operator - Sum all numbers (1, 2, 3, 4, 5):');
+      output.push(`   Result: ${sumAll(1, 2, 3, 4, 5)}`);
+
+      document.getElementById('output').textContent = output.join('\n');
+    }
+    document.getElementById('runDemoBtn').addEventListener('click', runDemo);
+  </script>
+</body>
+</html>
